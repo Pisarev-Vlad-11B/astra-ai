@@ -107,12 +107,16 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
 /* new chat control inside the tabs panel, bottom-right */
 .sidebar{position:relative}
 .sidebar-bottom{margin-top:auto;padding:18px 0 4px;display:flex;justify-content:flex-end;align-items:center}
-.new-chat{position:static;width:auto;height:auto;display:inline-flex;align-items:center;gap:10px;padding:0;border:0;background:transparent;color:#e8e0ff;font:600 14px "Manrope",sans-serif;box-shadow:none;cursor:pointer;transition:transform .2s}
-.new-chat:hover{transform:translateY(-1px);background:transparent;box-shadow:none}
-.new-chat-icon{width:42px;height:42px;border:1px solid #a77bff77;border-radius:13px;background:linear-gradient(145deg,#8b54ed44,#34205f88);display:grid;place-items:center;box-shadow:0 0 20px #7842e933,inset 0 1px #ffffff25;transition:background .2s,box-shadow .2s}
-.new-chat:hover .new-chat-icon{background:linear-gradient(145deg,#a56aff66,#48277caa);box-shadow:0 0 26px #965cff66,inset 0 1px #ffffff35}
-.new-chat svg{width:21px;height:21px;display:block;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.new-chat-label{letter-spacing:.2px}
+.new-chat{position:static;width:auto;height:auto;display:inline-flex;align-items:center;gap:10px;padding:0;border:0;background:transparent;color:#e8e0ff;font:600 14px "Manrope",sans-serif;box-shadow:none;cursor:pointer;transition:transform .38s cubic-bezier(.2,.8,.2,1),color .3s ease;}
+.new-chat:hover{transform:translateY(-3px);background:transparent;box-shadow:none;color:#fff}
+.new-chat:active{transform:translateY(-1px) scale(.97)}
+.new-chat-icon{width:42px;height:42px;border:1px solid #a77bff77;border-radius:13px;background:linear-gradient(145deg,#8b54ed44,#34205f88);display:grid;place-items:center;box-shadow:0 0 20px #7842e933,inset 0 1px #ffffff25;transition:transform .45s cubic-bezier(.2,.8,.2,1),background .35s ease,border-color .35s ease,box-shadow .4s ease;}
+.new-chat:hover .new-chat-icon{transform:rotate(-7deg) scale(1.09);border-color:#c8aaff;background:linear-gradient(145deg,#b17aff88,#58318fdd);box-shadow:0 0 12px #965cff99,0 0 34px #7842e977,inset 0 1px #ffffff55}
+.new-chat svg{width:21px;height:21px;display:block;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s cubic-bezier(.2,.8,.2,1),filter .35s ease}
+.new-chat:hover svg{transform:scale(1.08) rotate(7deg);filter:drop-shadow(0 0 4px #fff)}
+.new-chat-label{letter-spacing:.2px;transition:transform .35s ease,text-shadow .35s ease,color .35s ease}
+.new-chat:hover .new-chat-label{transform:translateX(3px);text-shadow:0 0 14px #b58affaa;color:#fff}
+@media(prefers-reduced-motion:reduce){.new-chat,.new-chat-icon,.new-chat svg,.new-chat-label{transition:none!important}}
 @media(max-width:580px){.sidebar-bottom{padding:18px 0 4px}.new-chat-icon{width:39px;height:39px}.new-chat{gap:8px;font-size:13px}}
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
