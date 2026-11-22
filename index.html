@@ -104,15 +104,16 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
 @media(max-width:580px){.sidebar-bottom{right:16px;bottom:16px}.nav{gap:10px}.nav button{padding:15px 14px}}
 .new-chat svg{width:22px;height:22px;display:block;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
 
-/* top-right new chat control: pencil tile + label */
-.top{height:72px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:5}
-.new-chat{position:static;width:auto;height:auto;display:inline-flex;align-items:center;gap:10px;padding:0;border:0;background:transparent;color:#e8e0ff;font:600 14px "Manrope",sans-serif;box-shadow:none;cursor:pointer;transition:opacity .2s,transform .2s}
+/* new chat control inside the tabs panel, bottom-right */
+.sidebar{position:relative}
+.sidebar-bottom{margin-top:auto;padding:18px 0 4px;display:flex;justify-content:flex-end;align-items:center}
+.new-chat{position:static;width:auto;height:auto;display:inline-flex;align-items:center;gap:10px;padding:0;border:0;background:transparent;color:#e8e0ff;font:600 14px "Manrope",sans-serif;box-shadow:none;cursor:pointer;transition:transform .2s}
 .new-chat:hover{transform:translateY(-1px);background:transparent;box-shadow:none}
 .new-chat-icon{width:42px;height:42px;border:1px solid #a77bff77;border-radius:13px;background:linear-gradient(145deg,#8b54ed44,#34205f88);display:grid;place-items:center;box-shadow:0 0 20px #7842e933,inset 0 1px #ffffff25;transition:background .2s,box-shadow .2s}
 .new-chat:hover .new-chat-icon{background:linear-gradient(145deg,#a56aff66,#48277caa);box-shadow:0 0 26px #965cff66,inset 0 1px #ffffff35}
 .new-chat svg{width:21px;height:21px;display:block;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .new-chat-label{letter-spacing:.2px}
-@media(max-width:580px){.top{height:58px;padding:0 14px}.new-chat-icon{width:39px;height:39px}.new-chat{gap:8px;font-size:13px}}
+@media(max-width:580px){.sidebar-bottom{padding:18px 0 4px}.new-chat-icon{width:39px;height:39px}.new-chat{gap:8px;font-size:13px}}
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
@@ -138,9 +139,9 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
 <div class="layout">
 <aside class="sidebar" id="sidebar">
  <div class="brand"><div class="brandicon"><svg viewBox="0 0 100 100"><defs><linearGradient id="brandGrad"><stop stop-color="#f5eaff"/><stop offset=".55" stop-color="#b38aff"/><stop offset="1" stop-color="#5e7dff"/></linearGradient></defs><path d="M17 78 43 20Q49 7 56 21L84 78" fill="none" stroke="url(#brandGrad)" stroke-width="10" stroke-linecap="round"/><ellipse cx="50" cy="50" rx="43" ry="12" fill="none" stroke="#9e75ff" stroke-width="2.5" transform="rotate(-18 50 50)"/></svg></div><div><b>ASTRA</b></div></div>
- <nav class="nav"><button class="active code-nav" onclick="choose(this,'Code')"><span class="code-mark">&lt;/&gt;</span>Code</button><button onclick="choose(this,'Проекты')"><span class="ni">▦</span>Проекты</button><button onclick="choose(this,'Генератор')"><span class="ni">✧</span>Генератор</button><button onclick="choose(this,'История')"><span class="ni">▤</span>История</button></nav>
+ <nav class="nav"><button class="active code-nav" onclick="choose(this,'Code')"><span class="code-mark">&lt;/&gt;</span>Code</button><button onclick="choose(this,'Проекты')"><span class="ni">▦</span>Проекты</button><button onclick="choose(this,'Генератор')"><span class="ni">✧</span>Генератор</button><button onclick="choose(this,'История')"><span class="ni">▤</span>История</button></nav><div class="sidebar-bottom"><button class="new-chat" title="Начать новый чат" aria-label="Начать новый чат" onclick="newChat()"><span class="new-chat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4.3-1 10.9-10.9a2.1 2.1 0 0 0-3-3L5.3 16z"/><path d="m14.8 6.5 3 3M4 20l1-4.3"/></svg></span><span class="new-chat-label">Чат</span></button></div>
 </aside>
-<main class="main"><header class="top"><div><button class="mobile" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div><button class="new-chat" title="Начать новый чат" aria-label="Начать новый чат" onclick="newChat()"><span class="new-chat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4.3-1 10.9-10.9a2.1 2.1 0 0 0-3-3L5.3 16z"/><path d="m14.8 6.5 3 3M4 20l1-4.3"/></svg></span><span class="new-chat-label">Чат</span></button></header>
+<main class="main"><header class="top"><div><button class="mobile" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div></header>
 <section class="content"><div class="hero">
 <div class="logoStage"><svg viewBox="0 0 470 285" aria-label="Стеклянный логотип ASTRA"><defs>
 <linearGradient id="liquid" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".28" stop-color="#d8c5ff"/><stop offset=".62" stop-color="#8055ed"/><stop offset="1" stop-color="#74aaff"/></linearGradient>
