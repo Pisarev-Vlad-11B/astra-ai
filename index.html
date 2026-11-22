@@ -353,6 +353,55 @@ button:hover,
   transition-duration:.14s !important;
 }
 
+
+/* Финальная система микроанимаций: короткая, лёгкая, без долгого разгона */
+.nav button,
+.new-chat,
+.new-chat-icon,
+.send{
+  transition: transform 160ms ease-out,
+              background-color 160ms ease-out,
+              border-color 160ms ease-out,
+              box-shadow 160ms ease-out,
+              color 160ms ease-out,
+              filter 160ms ease-out !important;
+  transition-delay:0ms !important;
+  will-change:auto;
+}
+.nav button:hover{
+  transform:translateY(-1px) scale(1.015) !important;
+  background-color:rgba(155,112,255,.13) !important;
+  border-color:rgba(177,145,255,.34) !important;
+  box-shadow:0 4px 13px rgba(105,72,210,.15) !important;
+}
+.new-chat:hover{
+  transform:translateY(-1px) scale(1.025) !important;
+  color:#fff !important;
+}
+.new-chat:hover .new-chat-icon{
+  transform:scale(1.035) !important;
+  border-color:rgba(193,161,255,.85) !important;
+  box-shadow:0 0 18px rgba(137,80,240,.28) !important;
+}
+.send:hover{
+  transform:scale(1.045) !important;
+  filter:brightness(1.12) !important;
+  box-shadow:0 5px 16px rgba(137,80,240,.32) !important;
+}
+.nav button:active,.new-chat:active,.send:active{
+  transform:scale(.975) !important;
+  transition-duration:90ms !important;
+}
+@media(hover:none){
+  .nav button:hover,.new-chat:hover,.new-chat:hover .new-chat-icon,.send:hover{
+    transform:none !important;
+    filter:none !important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .nav button,.new-chat,.new-chat-icon,.send{transition:none !important}
+}
+
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
