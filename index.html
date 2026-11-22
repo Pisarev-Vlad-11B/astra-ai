@@ -49,8 +49,34 @@ h1{font-size:clamp(36px,4vw,58px);font-weight:500;letter-spacing:15px;margin:0 0
 .note{display:none}
 @media(max-width:760px){.sidebar{width:185px}.logoStage{width:min(390px,80vw);height:235px}.content{padding:0 18px 26px}h1{letter-spacing:9px}.composer{border-radius:25px}}
 @media(max-width:580px){.sidebar{width:230px}.brand{padding-bottom:35px}.top{height:42px;padding:0 12px}.content{min-height:calc(100vh - 42px);padding:0 14px 18px}.hero{transform:translateY(-12px)}.logoStage{width:300px;height:200px}.composer{padding:10px 11px 10px 18px}.composer textarea{font-size:13px}.send{width:43px;height:43px}}
+
+/* vivid flowing violet-blue background ribbons */
+.ambient-art{opacity:1!important}
+.ambient-art:before{width:720px;height:720px;left:-280px;top:48%;background:#6424ed;opacity:.2;filter:blur(125px)}
+.ambient-art:after{width:780px;height:780px;right:-340px;bottom:-250px;background:#174fff;opacity:.22;filter:blur(130px)}
+.ambient-art svg{width:100%;height:100%;opacity:1}
 </style></head><body>
-<div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="ambientGradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7652d5" stop-opacity="0"/><stop offset=".48" stop-color="#b69aff"/><stop offset="1" stop-color="#4d8cff" stop-opacity="0"/></linearGradient></defs><path class="ambient-line" d="M-120 620 C130 410 190 780 420 590 S760 250 1010 440 S1300 690 1570 390"/><path class="ambient-line alt" d="M-100 300 C180 520 300 120 560 310 S930 660 1150 420 S1380 190 1580 300"/><path class="ambient-line" d="M-90 790 C170 610 300 890 540 700 S870 440 1080 610 S1370 810 1550 620"/><path class="ambient-line alt" d="M-80 120 C210 10 340 250 570 150 S940 20 1160 170 S1400 330 1570 100"/><ellipse class="ambient-orbit" cx="1080" cy="340" rx="370" ry="170" transform="rotate(-24 1080 340)"/><ellipse class="ambient-orbit" cx="1080" cy="340" rx="450" ry="220" transform="rotate(18 1080 340)"/><ellipse class="ambient-orbit" cx="410" cy="700" rx="270" ry="125" transform="rotate(-32 410 700)"/></svg></div>
+<div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+<defs>
+ <linearGradient id="waveViolet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5522d8" stop-opacity="0"/><stop offset=".34" stop-color="#9b55ff" stop-opacity=".78"/><stop offset=".62" stop-color="#d2a5ff" stop-opacity=".95"/><stop offset="1" stop-color="#6d42ff" stop-opacity="0"/></linearGradient>
+ <linearGradient id="waveBlue" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#3a35ff" stop-opacity="0"/><stop offset=".45" stop-color="#527dff" stop-opacity=".9"/><stop offset=".72" stop-color="#8bbcff" stop-opacity=".8"/><stop offset="1" stop-color="#344cff" stop-opacity="0"/></linearGradient>
+ <linearGradient id="waveFill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8d48ff" stop-opacity=".02"/><stop offset=".48" stop-color="#7e42ff" stop-opacity=".22"/><stop offset="1" stop-color="#315bff" stop-opacity=".02"/></linearGradient>
+ <filter id="waveGlow" x="-50%" y="-80%" width="200%" height="260%"><feGaussianBlur stdDeviation="13"/></filter>
+ <filter id="softGlow" x="-50%" y="-80%" width="200%" height="260%"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<!-- широкие полупрозрачные световые ленты -->
+<path d="M-120 650 C130 500 190 760 420 700 S780 790 980 620 S1280 390 1570 470 L1570 570 C1280 490 1160 760 950 760 S550 820 360 790 S80 720 -120 760Z" fill="url(#waveFill)"/>
+<path d="M-100 700 C150 550 205 755 430 710 S780 790 1000 620 S1290 410 1550 475" fill="none" stroke="url(#waveViolet)" stroke-width="58" opacity=".36" filter="url(#waveGlow)"/>
+<path d="M-100 700 C150 550 205 755 430 710 S780 790 1000 620 S1290 410 1550 475" fill="none" stroke="url(#waveViolet)" stroke-width="2.4" opacity=".95"/>
+<path d="M-120 610 C130 500 240 690 420 680 S760 735 970 600 S1300 370 1560 430" fill="none" stroke="#a978ff" stroke-width="1.2" opacity=".55" filter="url(#softGlow)"/>
+<path d="M-150 120 C120 260 300 210 480 85 S820 -40 1040 70 S1320 190 1580 65" fill="none" stroke="url(#waveBlue)" stroke-width="44" opacity=".28" filter="url(#waveGlow)"/>
+<path d="M-150 120 C120 260 300 210 480 85 S820 -40 1040 70 S1320 190 1580 65" fill="none" stroke="url(#waveBlue)" stroke-width="1.8" opacity=".72"/>
+<!-- длинные чистые орбитальные дуги -->
+<path d="M180 560 C260 370 520 300 760 340 S1170 420 1490 230" fill="none" stroke="#6844ed" stroke-width="1.1" opacity=".38"/>
+<path d="M-80 380 C180 260 390 260 590 320 S1010 460 1500 330" fill="none" stroke="url(#waveBlue)" stroke-width="1.3" opacity=".48"/>
+<path d="M780 940 C900 700 1080 590 1280 560 S1480 570 1580 610" fill="none" stroke="url(#waveBlue)" stroke-width="2" opacity=".7"/>
+<path d="M-100 820 C120 740 240 810 390 900" fill="none" stroke="#9b66ff" stroke-width="30" opacity=".18" filter="url(#waveGlow)"/>
+</svg></div>
 <div class="layout">
 <aside class="sidebar" id="sidebar">
  <div class="brand"><div class="brandicon"><svg viewBox="0 0 100 100"><defs><linearGradient id="brandGrad"><stop stop-color="#f5eaff"/><stop offset=".55" stop-color="#b38aff"/><stop offset="1" stop-color="#5e7dff"/></linearGradient></defs><path d="M17 78 43 20Q49 7 56 21L84 78" fill="none" stroke="url(#brandGrad)" stroke-width="10" stroke-linecap="round"/><ellipse cx="50" cy="50" rx="43" ry="12" fill="none" stroke="#9e75ff" stroke-width="2.5" transform="rotate(-18 50 50)"/></svg></div><div><b>ASTRA</b></div></div>
