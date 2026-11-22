@@ -332,6 +332,27 @@ button:hover,
   transition-duration:.18s !important;
 }
 
+
+/* Исправление задержки: задаём скорость напрямую для hover-состояний */
+.nav button,
+.new-chat,
+.send{
+  transition-duration:.28s !important;
+  transition-timing-function:cubic-bezier(.2,.75,.25,1) !important;
+}
+.nav button:hover,
+.nav button.active,
+.new-chat:hover,
+.send:hover{
+  transition-duration:.22s !important;
+  transition-timing-function:cubic-bezier(.2,.75,.25,1) !important;
+}
+.nav button:active,
+.new-chat:active,
+.send:active{
+  transition-duration:.14s !important;
+}
+
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
