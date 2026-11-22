@@ -102,300 +102,49 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
 @media(max-width:580px){.sidebar-bottom{padding:18px 0 4px}.new-chat-icon{width:39px;height:39px}.new-chat{gap:8px;font-size:13px}}
 
 
-/* Consistent, smooth micro-interactions across the interface */
-:root{--motion-ease:cubic-bezier(.2,.7,.25,1)}
-button,.nav button,.tools button,.mobile,.new-chat,.new-chat-icon,.composer,.brandicon,.send,.toast{
-  transition:
-    transform .28s var(--motion-ease),
-    color .28s ease,
-    background-color .28s ease,
-    border-color .28s ease,
-    box-shadow .32s ease,
-    opacity .28s ease;
-}
-.nav button{
-  transform:translate3d(0,0,0);
-  will-change:transform;
-}
-.nav button:hover{
-  transform:translate3d(3px,0,0);
-  border-color:#a77bff55;
-  box-shadow:0 5px 18px #5d32a522;
-}
-.nav button:active{transform:translate3d(1px,0,0) scale(.985)}
-.nav button.active{transition:background .32s ease,border-color .32s ease,box-shadow .35s ease,color .28s ease}
-.new-chat{will-change:transform}
-.new-chat:hover{transform:translate3d(0,-2px,0) scale(1.035)}
-.new-chat:active{transform:scale(.975)}
-.new-chat-icon{transition:transform .32s var(--motion-ease),background .32s ease,border-color .32s ease,box-shadow .35s ease}
-.new-chat:hover .new-chat-icon{transform:rotate(-3deg) scale(1.04)}
-.composer{transition:border-color .35s ease,box-shadow .35s ease,background .35s ease}
-.composer:focus-within{box-shadow:0 0 34px #7040d944,inset 0 1px #ffffff18}
-.tools button{border-radius:10px}
-.tools button:hover{color:#fff;background:#a98aff18;transform:translateY(-2px)}
-.tools button:active{transform:scale(.96)}
-.send{transition:transform .25s var(--motion-ease),box-shadow .3s ease,filter .3s ease}
-.send:hover{transform:translateY(-2px) scale(1.045);filter:brightness(1.12);box-shadow:0 0 29px #8954ff99}
-.send:active{transform:translateY(0) scale(.94)}
-.mobile:hover{background:#a98aff22;border-color:#b99aff66;transform:scale(1.04)}
-.mobile:active{transform:scale(.96)}
-.brandicon{transition:filter .4s ease,transform .4s var(--motion-ease)}
-.brand:hover .brandicon{transform:translateY(-2px);filter:drop-shadow(0 0 13px #9665ff55)}
-.composer textarea{transition:opacity .25s ease}
-button:focus-visible{outline:2px solid #b99aff;outline-offset:3px}
-.toast{transition:opacity .25s ease,transform .32s var(--motion-ease)}
-@media(hover:none){
-  .nav button:hover,.tools button:hover,.send:hover,.new-chat:hover,.mobile:hover{transform:none}
-}
-@media(prefers-reduced-motion:reduce){
-  button,.nav button,.tools button,.mobile,.new-chat,.new-chat-icon,.composer,.brandicon,.send,.toast{transition:none!important}
-  .nav button:hover,.tools button:hover,.send:hover,.new-chat:hover,.new-chat-icon{transform:none!important}
-}
-
-
-/* Плавные hover-анимации плашек — по мотивам ЕГЭ-тренажёра */
-:root{--tile-motion:cubic-bezier(.16,1,.3,1)}
+/* Hover-анимации — точная механика из ЕГЭ-тренажёра */
 .nav button,
 .history button,
-.cards button,
-.tools button{
-  position:relative;
-  transform:translateZ(0);
+.tools button,
+.new-chat,
+.new-chat-icon,
+.send{
   will-change:transform;
-  transition:transform 1.05s var(--tile-motion),
+  transition:transform 1.05s cubic-bezier(.16,1,.3,1),
              border-color 1.05s ease,
              box-shadow 1.05s ease,
-             background-color 1.05s ease,
-             color .45s ease;
+             background 1.05s ease,
+             color 1.05s ease,
+             filter 1.05s ease;
 }
 .nav button:hover,
 .history button:hover,
-.cards button:hover,
-.tools button:hover{
+.tools button:hover,
+.new-chat:hover,
+.new-chat:hover .new-chat-icon,
+.send:hover{
   transform:translateY(-4px) scale(1.018);
   border-color:#b89aff88;
   box-shadow:0 15px 30px rgba(104,65,180,.16),0 0 0 3px rgba(169,138,255,.07);
 }
 .nav button:active,
 .history button:active,
-.cards button:active,
-.tools button:active{
+.tools button:active,
+.new-chat:active,
+.send:active{
   transform:translateY(-1px) scale(.99);
   transition-duration:.18s;
 }
-.new-chat,
-.new-chat-icon{
-  transition:transform 1.05s var(--tile-motion),
-             border-color 1.05s ease,
-             box-shadow 1.05s ease,
-             background 1.05s ease,
-             color .45s ease;
-}
-.new-chat:hover{transform:translateY(-3px) scale(1.018)}
-.new-chat:hover .new-chat-icon{
-  transform:translateY(-2px) rotate(-3deg) scale(1.045);
-  box-shadow:0 9px 24px rgba(137,80,240,.24),0 0 0 3px rgba(169,138,255,.07);
-}
-@media(hover:none){
-  .nav button:hover,.history button:hover,.cards button:hover,.tools button:hover,
-  .new-chat:hover,.new-chat:hover .new-chat-icon{transform:none}
-}
-@media(prefers-reduced-motion:reduce){
-  .nav button,.history button,.cards button,.tools button,.new-chat,.new-chat-icon{
-    transition:none!important;will-change:auto
-  }
-}
-
-
-/* Единая медленная и мягкая реакция интерфейса */
-:root{--astra-hover-ease:cubic-bezier(.16,1,.3,1)}
-button,
-button:hover,
-.nav button,
-.nav button:hover,
-.nav button.active,
-.history button,
-.history button:hover,
-.tools button,
-.tools button:hover,
-.new-chat,
-.new-chat:hover,
-.new-chat-icon,
-.send,
-.send:hover,
-.mobile,
-.mobile:hover,
-.brandicon,
-.composer,
-.composer:focus-within,
-.toast{
-  transition-property:transform,color,background,border-color,box-shadow,filter,opacity!important;
-  transition-duration:1.05s!important;
-  transition-timing-function:var(--astra-hover-ease)!important;
-}
-.nav button:hover,
-.history button:hover,
-.tools button:hover{
-  transform:translateY(-2px) scale(1.008);
-}
-.nav button:active,
-.history button:active,
-.tools button:active{
-  transform:translateY(0) scale(.995);
-  transition-duration:.28s!important;
-}
-.new-chat:hover{transform:translateY(-2px) scale(1.01)}
-.new-chat:hover .new-chat-icon{transform:translateY(-1px) rotate(-2deg) scale(1.02)}
-.send:hover{transform:translateY(-1px) scale(1.02)}
-.mobile:hover{transform:scale(1.015)}
-.brand:hover .brandicon{transform:translateY(-1px)}
 @media(hover:none){
   .nav button:hover,.history button:hover,.tools button:hover,
-  .new-chat:hover,.new-chat:hover .new-chat-icon,
-  .send:hover,.mobile:hover,.brand:hover .brandicon{transform:none}
+  .new-chat:hover,.new-chat:hover .new-chat-icon,.send:hover{transform:none}
 }
 @media(prefers-reduced-motion:reduce){
-  button,.nav button,.history button,.tools button,.new-chat,.new-chat-icon,
-  .send,.mobile,.brandicon,.composer,.toast{transition:none!important}
-}
-
-
-/* Тонкая hover-подсветка в стиле ЕГЭ-тренажёра */
-.nav button,
-.new-chat,
-.send{
-  transform-origin:center;
-  transition:
-    transform 1.05s cubic-bezier(.16,1,.3,1),
-    background-color 1.05s ease,
-    border-color 1.05s ease,
-    box-shadow 1.05s ease,
-    filter 1.05s ease !important;
-}
-.nav button:hover{
-  transform:translateY(-2px) scale(1.018) !important;
-  background:rgba(145,105,255,.105) !important;
-  border-color:rgba(166,132,255,.30) !important;
-  box-shadow:0 7px 20px rgba(105,72,210,.13),inset 0 0 0 1px rgba(185,155,255,.045) !important;
-}
-.new-chat:hover{
-  transform:translateY(-2px) scale(1.025) !important;
-  background:rgba(145,105,255,.13) !important;
-  border-color:rgba(174,143,255,.34) !important;
-  box-shadow:0 8px 22px rgba(105,72,210,.17),0 0 16px rgba(142,105,255,.08) !important;
-}
-.send:hover{
-  transform:translateY(-2px) scale(1.045) !important;
-  filter:brightness(1.12) !important;
-  box-shadow:0 8px 22px rgba(137,80,240,.30),0 0 0 4px rgba(169,138,255,.09) !important;
-}
-.nav button:active,.new-chat:active,.send:active{
-  transform:scale(.985) !important;
-  transition-duration:.22s !important;
-}
-@media(hover:none){
-  .nav button:hover,.new-chat:hover,.send:hover{transform:none !important;filter:none !important}
-}
-@media(prefers-reduced-motion:reduce){
-  .nav button,.new-chat,.send{transition:none !important}
-}
-
-
-/* Более заметная и быстрая реакция интерактивных элементов */
-.nav button,.new-chat,.send{
-  transition:
-    transform .58s cubic-bezier(.16,1,.3,1),
-    background-color .58s ease,
-    border-color .58s ease,
-    box-shadow .58s ease,
-    filter .58s ease !important;
-}
-.nav button:hover{
-  transform:translateY(-3px) scale(1.035) !important;
-  background:rgba(145,105,255,.16) !important;
-  border-color:rgba(177,145,255,.42) !important;
-  box-shadow:0 9px 24px rgba(105,72,210,.20),inset 0 0 0 1px rgba(185,155,255,.07) !important;
-}
-.new-chat:hover{
-  transform:translateY(-3px) scale(1.045) !important;
-  background:rgba(145,105,255,.19) !important;
-  border-color:rgba(184,153,255,.48) !important;
-  box-shadow:0 10px 26px rgba(105,72,210,.24),0 0 20px rgba(142,105,255,.12) !important;
-}
-.send:hover{
-  transform:translateY(-2px) scale(1.07) !important;
-  filter:brightness(1.18) !important;
-  box-shadow:0 10px 26px rgba(137,80,240,.36),0 0 0 5px rgba(169,138,255,.12) !important;
-}
-.nav button:active,.new-chat:active,.send:active{
-  transform:scale(.975) !important;
-  transition-duration:.18s !important;
-}
-
-
-/* Исправление задержки: задаём скорость напрямую для hover-состояний */
-.nav button,
-.new-chat,
-.send{
-  transition-duration:.28s !important;
-  transition-timing-function:cubic-bezier(.2,.75,.25,1) !important;
-}
-.nav button:hover,
-.nav button.active,
-.new-chat:hover,
-.send:hover{
-  transition-duration:.22s !important;
-  transition-timing-function:cubic-bezier(.2,.75,.25,1) !important;
-}
-.nav button:active,
-.new-chat:active,
-.send:active{
-  transition-duration:.14s !important;
-}
-
-
-/* Реакция без ожидания: короткий переход и нулевая задержка */
-html body .nav button,
-html body .new-chat,
-html body .new-chat-icon,
-html body .send{
-  transition-property:transform,background-color,border-color,box-shadow,color,filter !important;
-  transition-duration:120ms !important;
-  transition-timing-function:ease-out !important;
-  transition-delay:0ms !important;
-}
-.nav button:hover{
-  transform:translateY(-1px) scale(1.015) !important;
-  background-color:rgba(155,112,255,.13) !important;
-  border-color:rgba(177,145,255,.34) !important;
-  box-shadow:0 4px 13px rgba(105,72,210,.15) !important;
-}
-.new-chat:hover{
-  transform:translateY(-1px) scale(1.025) !important;
-  color:#fff !important;
-}
-.new-chat:hover .new-chat-icon{
-  transform:scale(1.035) !important;
-  border-color:rgba(193,161,255,.85) !important;
-  box-shadow:0 0 18px rgba(137,80,240,.28) !important;
-}
-.send:hover{
-  transform:scale(1.045) !important;
-  filter:brightness(1.12) !important;
-  box-shadow:0 5px 16px rgba(137,80,240,.32) !important;
-}
-.nav button:active,.new-chat:active,.send:active{
-  transform:scale(.975) !important;
-  transition-duration:90ms !important;
-}
-@media(hover:none){
-  .nav button:hover,.new-chat:hover,.new-chat:hover .new-chat-icon,.send:hover{
-    transform:none !important;
-    filter:none !important;
+  .nav button,.history button,.tools button,.new-chat,.new-chat-icon,.send{
+    transition:none!important;
+    will-change:auto;
   }
 }
-
-
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
