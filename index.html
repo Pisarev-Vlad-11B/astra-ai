@@ -206,6 +206,59 @@ button:focus-visible{outline:2px solid #b99aff;outline-offset:3px}
   }
 }
 
+
+/* Единая медленная и мягкая реакция интерфейса */
+:root{--astra-hover-ease:cubic-bezier(.16,1,.3,1)}
+button,
+button:hover,
+.nav button,
+.nav button:hover,
+.nav button.active,
+.history button,
+.history button:hover,
+.tools button,
+.tools button:hover,
+.new-chat,
+.new-chat:hover,
+.new-chat-icon,
+.send,
+.send:hover,
+.mobile,
+.mobile:hover,
+.brandicon,
+.composer,
+.composer:focus-within,
+.toast{
+  transition-property:transform,color,background,border-color,box-shadow,filter,opacity!important;
+  transition-duration:1.05s!important;
+  transition-timing-function:var(--astra-hover-ease)!important;
+}
+.nav button:hover,
+.history button:hover,
+.tools button:hover{
+  transform:translateY(-2px) scale(1.008);
+}
+.nav button:active,
+.history button:active,
+.tools button:active{
+  transform:translateY(0) scale(.995);
+  transition-duration:.28s!important;
+}
+.new-chat:hover{transform:translateY(-2px) scale(1.01)}
+.new-chat:hover .new-chat-icon{transform:translateY(-1px) rotate(-2deg) scale(1.02)}
+.send:hover{transform:translateY(-1px) scale(1.02)}
+.mobile:hover{transform:scale(1.015)}
+.brand:hover .brandicon{transform:translateY(-1px)}
+@media(hover:none){
+  .nav button:hover,.history button:hover,.tools button:hover,
+  .new-chat:hover,.new-chat:hover .new-chat-icon,
+  .send:hover,.mobile:hover,.brand:hover .brandicon{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  button,.nav button,.history button,.tools button,.new-chat,.new-chat-icon,
+  .send,.mobile,.brandicon,.composer,.toast{transition:none!important}
+}
+
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
