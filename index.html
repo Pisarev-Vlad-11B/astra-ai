@@ -102,6 +102,7 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
 .nav{gap:10px}
 .nav button{padding:15px 14px}
 @media(max-width:580px){.sidebar-bottom{right:16px;bottom:16px}.nav{gap:10px}.nav button{padding:15px 14px}}
+.new-chat svg{width:22px;height:22px;display:block;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
@@ -127,7 +128,7 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
 <div class="layout">
 <aside class="sidebar" id="sidebar">
  <div class="brand"><div class="brandicon"><svg viewBox="0 0 100 100"><defs><linearGradient id="brandGrad"><stop stop-color="#f5eaff"/><stop offset=".55" stop-color="#b38aff"/><stop offset="1" stop-color="#5e7dff"/></linearGradient></defs><path d="M17 78 43 20Q49 7 56 21L84 78" fill="none" stroke="url(#brandGrad)" stroke-width="10" stroke-linecap="round"/><ellipse cx="50" cy="50" rx="43" ry="12" fill="none" stroke="#9e75ff" stroke-width="2.5" transform="rotate(-18 50 50)"/></svg></div><div><b>ASTRA</b></div></div>
- <nav class="nav"><button class="active code-nav" onclick="choose(this,'Code')"><span class="code-mark">&lt;/&gt;</span>Code</button><button onclick="choose(this,'Проекты')"><span class="ni">▦</span>Проекты</button><button onclick="choose(this,'Генератор')"><span class="ni">✧</span>Генератор</button><button onclick="choose(this,'История')"><span class="ni">▤</span>История</button></nav><div class="sidebar-bottom"><button class="new-chat" title="Начать новый чат" aria-label="Начать новый чат" onclick="newChat()">＋</button></div>
+ <nav class="nav"><button class="active code-nav" onclick="choose(this,'Code')"><span class="code-mark">&lt;/&gt;</span>Code</button><button onclick="choose(this,'Проекты')"><span class="ni">▦</span>Проекты</button><button onclick="choose(this,'Генератор')"><span class="ni">✧</span>Генератор</button><button onclick="choose(this,'История')"><span class="ni">▤</span>История</button></nav><div class="sidebar-bottom"><button class="new-chat" title="Начать новый чат" aria-label="Начать новый чат" onclick="newChat()"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 3.5H6.8A1.8 1.8 0 0 0 5 5.3v13.4a1.8 1.8 0 0 0 1.8 1.8h11.4a1.8 1.8 0 0 0 1.8-1.8V10z"/><path d="M13.5 3.5V10H20M8.5 14h5M8.5 17h3"/><path d="m14.2 16.8 4.6-4.6 1.6 1.6-4.6 4.6-2.2.6z"/></svg></button></div>
 </aside>
 <main class="main"><header class="top"><div><button class="mobile" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button></div></header>
 <section class="content"><div class="hero">
