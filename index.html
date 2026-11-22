@@ -94,6 +94,14 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
 @keyframes ribbonDriftH{0%{transform:translate(15px,0) rotate(.3deg)}50%{transform:translate(-12px,17px) rotate(-.6deg)}100%{transform:translate(8px,-12px) rotate(.2deg)}}
 @keyframes ribbonDriftI{0%{transform:translate(-8px,4px);opacity:.12}50%{transform:translate(14px,-12px);opacity:.24}100%{transform:translate(-12px,8px);opacity:.16}}
 @media(prefers-reduced-motion:reduce){.ambient-art svg>path{animation:none!important}}
+
+
+/* reposition new-chat control in the lower-right of the workspace */
+.sidebar-bottom{position:fixed;right:28px;bottom:24px;z-index:10;margin:0;padding:0;display:flex;justify-content:center}
+/* make active navigation tiles just a little more compact */
+.nav{gap:10px}
+.nav button{padding:15px 14px}
+@media(max-width:580px){.sidebar-bottom{right:16px;bottom:16px}.nav{gap:10px}.nav button{padding:15px 14px}}
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
