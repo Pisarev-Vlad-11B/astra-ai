@@ -152,6 +152,60 @@ button:focus-visible{outline:2px solid #b99aff;outline-offset:3px}
   .nav button:hover,.tools button:hover,.send:hover,.new-chat:hover,.new-chat-icon{transform:none!important}
 }
 
+
+/* Плавные hover-анимации плашек — по мотивам ЕГЭ-тренажёра */
+:root{--tile-motion:cubic-bezier(.16,1,.3,1)}
+.nav button,
+.history button,
+.cards button,
+.tools button{
+  position:relative;
+  transform:translateZ(0);
+  will-change:transform;
+  transition:transform 1.05s var(--tile-motion),
+             border-color 1.05s ease,
+             box-shadow 1.05s ease,
+             background-color 1.05s ease,
+             color .45s ease;
+}
+.nav button:hover,
+.history button:hover,
+.cards button:hover,
+.tools button:hover{
+  transform:translateY(-4px) scale(1.018);
+  border-color:#b89aff88;
+  box-shadow:0 15px 30px rgba(104,65,180,.16),0 0 0 3px rgba(169,138,255,.07);
+}
+.nav button:active,
+.history button:active,
+.cards button:active,
+.tools button:active{
+  transform:translateY(-1px) scale(.99);
+  transition-duration:.18s;
+}
+.new-chat,
+.new-chat-icon{
+  transition:transform 1.05s var(--tile-motion),
+             border-color 1.05s ease,
+             box-shadow 1.05s ease,
+             background 1.05s ease,
+             color .45s ease;
+}
+.new-chat:hover{transform:translateY(-3px) scale(1.018)}
+.new-chat:hover .new-chat-icon{
+  transform:translateY(-2px) rotate(-3deg) scale(1.045);
+  box-shadow:0 9px 24px rgba(137,80,240,.24),0 0 0 3px rgba(169,138,255,.07);
+}
+@media(hover:none){
+  .nav button:hover,.history button:hover,.cards button:hover,.tools button:hover,
+  .new-chat:hover,.new-chat:hover .new-chat-icon{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .nav button,.history button,.cards button,.tools button,.new-chat,.new-chat-icon{
+    transition:none!important;will-change:auto
+  }
+}
+
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
