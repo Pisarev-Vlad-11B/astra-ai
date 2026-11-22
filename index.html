@@ -100,6 +100,58 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
 .new-chat:hover .new-chat-label{text-shadow:0 0 12px #b58aff66}
 @media(prefers-reduced-motion:reduce){.new-chat,.new-chat-icon,.new-chat svg,.new-chat-label{transition:none!important}}
 @media(max-width:580px){.sidebar-bottom{padding:18px 0 4px}.new-chat-icon{width:39px;height:39px}.new-chat{gap:8px;font-size:13px}}
+
+
+/* Consistent, smooth micro-interactions across the interface */
+:root{--motion-ease:cubic-bezier(.2,.7,.25,1)}
+button,.nav button,.tools button,.mobile,.new-chat,.new-chat-icon,.composer,.brandicon,.send,.toast{
+  transition:
+    transform .28s var(--motion-ease),
+    color .28s ease,
+    background-color .28s ease,
+    border-color .28s ease,
+    box-shadow .32s ease,
+    opacity .28s ease;
+}
+.nav button{
+  transform:translate3d(0,0,0);
+  will-change:transform;
+}
+.nav button:hover{
+  transform:translate3d(3px,0,0);
+  border-color:#a77bff55;
+  box-shadow:0 5px 18px #5d32a522;
+}
+.nav button:active{transform:translate3d(1px,0,0) scale(.985)}
+.nav button.active{transition:background .32s ease,border-color .32s ease,box-shadow .35s ease,color .28s ease}
+.new-chat{will-change:transform}
+.new-chat:hover{transform:translate3d(0,-2px,0) scale(1.035)}
+.new-chat:active{transform:scale(.975)}
+.new-chat-icon{transition:transform .32s var(--motion-ease),background .32s ease,border-color .32s ease,box-shadow .35s ease}
+.new-chat:hover .new-chat-icon{transform:rotate(-3deg) scale(1.04)}
+.composer{transition:border-color .35s ease,box-shadow .35s ease,background .35s ease}
+.composer:focus-within{box-shadow:0 0 34px #7040d944,inset 0 1px #ffffff18}
+.tools button{border-radius:10px}
+.tools button:hover{color:#fff;background:#a98aff18;transform:translateY(-2px)}
+.tools button:active{transform:scale(.96)}
+.send{transition:transform .25s var(--motion-ease),box-shadow .3s ease,filter .3s ease}
+.send:hover{transform:translateY(-2px) scale(1.045);filter:brightness(1.12);box-shadow:0 0 29px #8954ff99}
+.send:active{transform:translateY(0) scale(.94)}
+.mobile:hover{background:#a98aff22;border-color:#b99aff66;transform:scale(1.04)}
+.mobile:active{transform:scale(.96)}
+.brandicon{transition:filter .4s ease,transform .4s var(--motion-ease)}
+.brand:hover .brandicon{transform:translateY(-2px);filter:drop-shadow(0 0 13px #9665ff55)}
+.composer textarea{transition:opacity .25s ease}
+button:focus-visible{outline:2px solid #b99aff;outline-offset:3px}
+.toast{transition:opacity .25s ease,transform .32s var(--motion-ease)}
+@media(hover:none){
+  .nav button:hover,.tools button:hover,.send:hover,.new-chat:hover,.mobile:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  button,.nav button,.tools button,.mobile,.new-chat,.new-chat-icon,.composer,.brandicon,.send,.toast{transition:none!important}
+  .nav button:hover,.tools button:hover,.send:hover,.new-chat:hover,.new-chat-icon{transform:none!important}
+}
+
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
