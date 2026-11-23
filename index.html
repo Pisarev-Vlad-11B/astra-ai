@@ -220,6 +220,46 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
   .sidebar{width:225px !important;padding:18px 13px 14px !important}
   .nav button{padding:13px 12px !important;font-size:13px !important}
 }
+
+/* Производительность: убираем тяжёлые эффекты, мешающие мгновенному hover */
+.ambient-art,
+.ambient-art *,
+.ambient-art::before,
+.ambient-art::after {
+  animation: none !important;
+  filter: none !important;
+}
+.ambient-art { opacity: .28 !important; }
+.ambient-art .ambient-line,
+.ambient-art .ambient-orbit {
+  filter: none !important;
+  animation: none !important;
+}
+.sidebar,
+.cards button,
+.composer {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+/* Навигация реагирует мгновенно: никаких переходов и задержек */
+.nav button,
+.nav button:hover,
+.nav button:focus,
+.nav button:active {
+  transition: none !important;
+  transition-delay: 0s !important;
+  animation: none !important;
+  transform: none !important;
+  will-change: auto !important;
+}
+.nav button:hover,
+.nav button:not(.active):hover {
+  background: #a98aff24 !important;
+  border-color: #b49aff45 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
