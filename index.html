@@ -173,6 +173,53 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
 @media(hover:none){.nav button:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.nav button{transition:none !important;will-change:auto}}
 
+
+/* Компактная боковая панель без hover-анимаций */
+.sidebar{
+  width:205px !important;
+  padding:18px 12px 14px !important;
+}
+.brand{gap:9px;padding:2px 7px 23px !important}
+.brandicon{width:34px;height:34px}
+.brandicon svg{width:23px}
+.brand b{font-size:16px}
+.navlabel{padding:20px 9px 8px !important}
+.nav{gap:3px !important}
+.nav button{
+  padding:12px 12px !important;
+  font-size:13px !important;
+  border-radius:11px !important;
+  transform:none !important;
+  transition:none !important;
+  animation:none !important;
+  box-shadow:none;
+}
+.nav button .ni{width:25px !important;font-size:16px !important}
+.nav button:hover,
+.nav button:not(.active):hover{
+  transform:none !important;
+  transition:none !important;
+  background:#a98aff18 !important;
+  border-color:#b49aff25 !important;
+  color:#fff !important;
+  box-shadow:none !important;
+}
+.nav button.active,
+.nav button.active:hover{
+  transform:none !important;
+  transition:none !important;
+  background:#a98aff20 !important;
+  border-color:#b49aff35 !important;
+  color:#fff !important;
+  box-shadow:inset 2px 0 #b89aff !important;
+}
+@media(max-width:760px){
+  .sidebar{width:195px !important}
+}
+@media(max-width:580px){
+  .sidebar{width:225px !important;padding:18px 13px 14px !important}
+  .nav button{padding:13px 12px !important;font-size:13px !important}
+}
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
