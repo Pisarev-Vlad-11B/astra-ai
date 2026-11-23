@@ -103,7 +103,6 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
 
 
 /* Hover-анимации — точная механика из ЕГЭ-тренажёра */
-.nav button,
 .history button,
 .tools button,
 .new-chat,
@@ -117,7 +116,6 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
              color 1.05s ease,
              filter 1.05s ease;
 }
-.nav button:hover,
 .history button:hover,
 .tools button:hover,
 .new-chat:hover,
@@ -127,7 +125,6 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
   border-color:#b89aff88;
   box-shadow:0 15px 30px rgba(104,65,180,.16),0 0 0 3px rgba(169,138,255,.07);
 }
-.nav button:active,
 .history button:active,
 .tools button:active,
 .new-chat:active,
@@ -140,31 +137,37 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
   .new-chat:hover,.new-chat:hover .new-chat-icon,.send:hover{transform:none}
 }
 @media(prefers-reduced-motion:reduce){
-  .nav button,.history button,.tools button,.new-chat,.new-chat-icon,.send{
+  .history button,.tools button,.new-chat,.new-chat-icon,.send{
     transition:none!important;
     will-change:auto;
   }
 }
 
 
-/* Наведение на вкладки — перенос механики из ЕГЭ-тренажёра */
+/* Единая система наведения для вкладок — без конфликтующих правил */
 .nav button{
-  transition:background .22s ease,color .22s ease,transform .22s ease;
+  position:relative;
+  border:1px solid transparent;
+  transition:transform .22s ease,background .22s ease,color .22s ease,border-color .22s ease,box-shadow .22s ease;
+  will-change:transform;
 }
-.nav button:hover{
+.nav button:not(.active):hover{
   transform:translateY(-2px);
-  background:linear-gradient(110deg,#7625e966,#33206477);
-  color:#f4efff;
-  border-color:#9b62ff66;
-  box-shadow:0 8px 20px rgba(112,46,234,.18),inset 0 1px rgba(255,255,255,.08);
+  background:linear-gradient(110deg,rgba(118,37,233,.42),rgba(51,32,100,.48));
+  color:#fff;
+  border-color:rgba(155,98,255,.55);
+  box-shadow:0 8px 22px rgba(112,46,234,.24),inset 0 1px rgba(255,255,255,.10);
 }
 .nav button.active,
 .nav button.active:hover{
-  background:linear-gradient(110deg,#7625e9aa,#332064bb);
+  background:linear-gradient(110deg,#7625e9bb,#332064cc);
   color:#fff;
-  border-color:#9b62ff88;
-  box-shadow:0 0 28px #702eea33,inset 0 1px #ffffff18;
+  border-color:#9b62ff99;
+  box-shadow:0 0 25px rgba(112,46,234,.24),inset 0 1px rgba(255,255,255,.10);
 }
+.nav button:active{transform:translateY(0) scale(.985)}
+@media(hover:none){.nav button:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.nav button{transition:none;will-change:auto}}
 
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
