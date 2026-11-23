@@ -169,6 +169,50 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
 @media(hover:none){.nav button:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.nav button{transition:none;will-change:auto}}
 
+
+/* ASTRA — анимация наведения на вкладки */
+.nav button {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.22s ease,
+        background 0.22s ease,
+        color 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease !important;
+}
+
+/* Подсветка при наведении */
+.nav button:not(.active):hover {
+    transform: translateY(-2px) !important;
+    background: linear-gradient(
+        110deg,
+        rgba(118, 37, 233, 0.42),
+        rgba(51, 32, 100, 0.55)
+    ) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(155, 98, 255, 0.7) !important;
+    box-shadow:
+        0 8px 22px rgba(112, 46, 234, 0.28),
+        inset 0 1px rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Активная вкладка */
+.nav button.active {
+    background: linear-gradient(
+        110deg,
+        #7625e9bb,
+        #332064cc
+    ) !important;
+    color: #ffffff !important;
+    border: 1px solid #9b62ff99 !important;
+}
+
+/* Нажатие */
+.nav button:active {
+    transform: scale(0.98) !important;
+}
+
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
