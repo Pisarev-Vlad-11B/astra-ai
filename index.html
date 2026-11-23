@@ -145,6 +145,27 @@ h1{font-size:clamp(32px,3.5vw,50px);letter-spacing:12px}
     will-change:auto;
   }
 }
+
+
+/* Наведение на вкладки — перенос механики из ЕГЭ-тренажёра */
+.nav button{
+  transition:background .22s ease,color .22s ease,transform .22s ease;
+}
+.nav button:hover{
+  transform:translateY(-2px);
+  background:linear-gradient(110deg,#7625e966,#33206477);
+  color:#f4efff;
+  border-color:#9b62ff66;
+  box-shadow:0 8px 20px rgba(112,46,234,.18),inset 0 1px rgba(255,255,255,.08);
+}
+.nav button.active,
+.nav button.active:hover{
+  background:linear-gradient(110deg,#7625e9aa,#332064bb);
+  color:#fff;
+  border-color:#9b62ff88;
+  box-shadow:0 0 28px #702eea33,inset 0 1px #ffffff18;
+}
+
 </style></head><body>
 <div class="ambient-art" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
